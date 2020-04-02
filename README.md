@@ -15,3 +15,12 @@
 3. npm i antd (강의에서는 버전 3이어서 antd@3 으로 진행함) 설치 후 ant design 사이트에서 cdn 으로 css 를 가져와서 next 의 헤드에 넣어준다.
 4. next Js 에서의 헤드는 정직하게 import Head from "next/head" 로 임폴트 해준뒤 안쪽에 Head 를 써주면 그게 헤드가 되고 그 안에 각종 소스를 넣어주면 적용이 된다.
 5. profile 화면, signup 화면, index 메인화면 구성
+
+# 04/02
+
+1. signUp form 화면 구성
+2. input 은 항상 onChange 와 value 가 짝을 지어야 한다.
+3. 되도록 약자 사용하지 말기
+4. antd 에서 type primary 는 파란 버튼을 의미 submit 기능을 넣고싶을때 htmlType="submit" 을 써야함
+5. useState 는 함수, 조건문, 반복문 안에는 사용하지 말아야한다. 예외의 경우는 커스텀훅(custom Hook)을 만들때만 함수 안쪽에 사용해도 된다.
+6. custom Hook 이란 기존 Hooks 에 별도의 기능을 첨가하여 새로운 hook 을 만들어 내는것을 말한다.

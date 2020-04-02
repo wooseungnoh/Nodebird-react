@@ -20,10 +20,6 @@
       "static/runtime/polyfills.js",
       "static/runtime/polyfills.js.map"
     ],
-    "/profile": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/signup": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"

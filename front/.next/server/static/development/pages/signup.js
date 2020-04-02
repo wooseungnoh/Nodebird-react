@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -108,7 +108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "antd");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "D:\\nodebirds\\front\\components\\AppLayout.js";
+var _jsxFileName = "C:\\Users\\shdnt\\Desktop\\nodebird\\front\\components\\AppLayout.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1915,25 +1915,105 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AppLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/AppLayout */ "./components/AppLayout.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "D:\\nodebirds\\front\\pages\\signup.js";
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "antd");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "C:\\Users\\shdnt\\Desktop\\nodebird\\front\\pages\\signup.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
+
 const Signup = () => {
+  const {
+    0: nick,
+    1: setNick
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const {
+    0: password,
+    1: setPassword
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const {
+    0: passwordCheck,
+    1: setPasswordCheck
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const {
+    0: term,
+    1: setTerm
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: passwordError,
+    1: setPasswordError
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: termError,
+    1: setTermError
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    if (password !== passwordCheck) {
+      return setPasswordError(true);
+    }
+
+    if (!term) {
+      return setTermError(true);
+    }
+
+    console.log({
+      id,
+      nick,
+      password,
+      passwordCheck,
+      term
+    });
+  };
+
+  const onChangeNick = e => {
+    setNick(e.target.value);
+  };
+
+  const onChangePassword = e => {
+    setPassword(e.target.value);
+  };
+
+  const onChangePasswordCheck = e => {
+    setPasswordError(e.target.value !== password);
+    setPasswordCheck(e.target.value);
+  };
+
+  const onChangeTerm = e => {
+    setTermError(false);
+    setTerm(e.target.checked);
+  };
+
+  const useInput = (initValue = null) => {
+    const {
+      0: value,
+      1: setter
+    } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initValue);
+
+    const handler = e => {
+      setter(e.target.value);
+    };
+
+    return [value, handler];
+  };
+
+  const [id, onChangeId] = useInput('');
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7,
+      lineNumber: 56,
       columnNumber: 7
     }
   }, __jsx("title", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 57,
       columnNumber: 9
     }
   }, "NodeBird"), __jsx("link", {
@@ -1942,38 +2022,229 @@ const Signup = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 58,
       columnNumber: 9
     }
   })), __jsx(_components_AppLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 63,
       columnNumber: 7
+    }
+  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Form"], {
+    onSubmit: onSubmit,
+    style: {
+      padding: 10
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64,
+      columnNumber: 9
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
-      columnNumber: 9
+      lineNumber: 65,
+      columnNumber: 11
     }
-  }, "\uD68C\uC6D0\uAC00\uC785")));
+  }, __jsx("label", {
+    htmlFor: "user-id",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66,
+      columnNumber: 13
+    }
+  }, "\uC544\uC774\uB514"), __jsx("br", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 13
+    }
+  }), __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Input"], {
+    name: "user-id",
+    value: id,
+    required: true,
+    onChange: onChangeId,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68,
+      columnNumber: 13
+    }
+  })), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70,
+      columnNumber: 11
+    }
+  }, __jsx("label", {
+    htmlFor: "user-nick",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71,
+      columnNumber: 13
+    }
+  }, "\uB2C9\uB124\uC784"), __jsx("br", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 13
+    }
+  }), __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Input"], {
+    name: "user-nick",
+    value: nick,
+    required: true,
+    onChange: onChangeNick,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73,
+      columnNumber: 13
+    }
+  })), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80,
+      columnNumber: 11
+    }
+  }, __jsx("label", {
+    htmlFor: "user-password",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81,
+      columnNumber: 13
+    }
+  }, "\uBE44\uBC00\uBC88\uD638"), __jsx("br", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 13
+    }
+  }), __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Input"], {
+    name: "user-password",
+    type: "password",
+    value: password,
+    required: true,
+    onChange: onChangePassword,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 13
+    }
+  })), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91,
+      columnNumber: 11
+    }
+  }, __jsx("label", {
+    htmlFor: "user-password-check",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 92,
+      columnNumber: 13
+    }
+  }, "\uBE44\uBC00\uBC88\uD638 \uCCB4\uD06C"), __jsx("br", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 93,
+      columnNumber: 13
+    }
+  }), __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Input"], {
+    name: "user-password-check",
+    type: "password",
+    value: passwordCheck,
+    required: true,
+    onChange: onChangePasswordCheck,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94,
+      columnNumber: 13
+    }
+  }), passwordError && __jsx("div", {
+    style: {
+      color: 'red'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 101,
+      columnNumber: 31
+    }
+  }, "\uBE44\uBC00\uBC88\uD638\uAC00 \uC77C\uCE58\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.")), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 11
+    }
+  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Checkbox"], {
+    name: "user-term",
+    value: term,
+    onChange: onChangeTerm,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105,
+      columnNumber: 13
+    }
+  }, "\uB3D9\uC758?"), termError && __jsx("div", {
+    style: {
+      color: 'red'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 108,
+      columnNumber: 27
+    }
+  }, "\uC57D\uAD00\uC5D0 \uB3D9\uC758\uD558\uC154\uC57C \uD569\uB2C8\uB2E4.")), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 110,
+      columnNumber: 11
+    }
+  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+    type: "primary",
+    htmlType: "submit",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111,
+      columnNumber: 13
+    }
+  }, "\uAC00\uC785\uD558\uAE30")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Signup);
 
 /***/ }),
 
-/***/ 6:
+/***/ 4:
 /*!*******************************!*\
   !*** multi ./pages/signup.js ***!
   \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\nodebirds\front\pages\signup.js */"./pages/signup.js");
+module.exports = __webpack_require__(/*! C:\Users\shdnt\Desktop\nodebird\front\pages\signup.js */"./pages/signup.js");
 
 
 /***/ }),
