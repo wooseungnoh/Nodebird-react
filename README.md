@@ -24,3 +24,20 @@
 4. antd 에서 type primary 는 파란 버튼을 의미 submit 기능을 넣고싶을때 htmlType="submit" 을 써야함
 5. useState 는 함수, 조건문, 반복문 안에는 사용하지 말아야한다. 예외의 경우는 커스텀훅(custom Hook)을 만들때만 함수 안쪽에 사용해도 된다.
 6. custom Hook 이란 기존 Hooks 에 별도의 기능을 첨가하여 새로운 hook 을 만들어 내는것을 말한다.
+
+# 04/03
+
+1. next.js 의 \_app.js 는 공통된 부분을 묶어서 레이아웃 분리를 할 수 있으며, 이런경우 쓸대없는 렌더링을 막는데에 효과가 있다.
+2. \_app.js 의 안에 Component 는 알아서 다른 컴포넌트들을 그 안에 렌더해준다.
+3. 너무 지나치게 과한 최적화는 효율에비하여 시간이 너무 오래걸리니 하지 않도록 한다.
+4. 새로운 인풋을 만들고 memo 를 붙여 다른 컴포넌트가 리렌더링이 되지 않도록 만들어 줄 수있다.
+     <pre><code>const TextInput = memo(({ value, onChange }) => {});</code></pre>
+5. prop-types 를 통하여 부모로부터 받은 props 가 올바른 자료형인지 검증해 볼 수 있다.
+6. npmjs.com/package/prop-types 에 prop types 를 어떻게 사용할 수 있는지 나와있다.
+7. next 에 내장되어있는 특수한 페이지가 \_document.js, \_app.js, \_error.js 가 있다.
+8. antd 의 그리드 시스템을 적용할때에는 행(Row), 열(Col) 을 import 하여 사용할 수 있으며, 옵션인 xs 는 모바일, sm 은 작은화면, md 는 중간화면, lg 는 큰화면이다.
+9. antd 의 그리드 시스템은 기본적으로 반응형이다.
+10. 24 를 기준으로 몇으로 나누느냐에 따라 컨텐츠 크기를 나눌 수 있다.
+11. 자식 컴포넌트에게 props 를 넘기는 함수는 useCallback 으로 감싸준다.
+12. 컴포넌트 분리의 가장 쉬운 조건 = 조건문, 반복문 안에 있는 컴포넌트
+13. 프로필 화면 구성 2-6 완료
