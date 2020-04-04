@@ -8,7 +8,7 @@ const dummy = {
   mainPosts: [{
     User: {
       id: 1,
-      nickname: '제로초',
+      nickname: '우승',
     },
     content: '첫 번째 게시글',
     img: '',
