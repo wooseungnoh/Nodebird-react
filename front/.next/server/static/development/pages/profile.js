@@ -88,10 +88,64 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./components/NicknameEditForm.js":
+/*!****************************************!*\
+  !*** ./components/NicknameEditForm.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd */ "antd");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "D:\\nodebirds\\front\\components\\NicknameEditForm.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+const NicknameEditForm = () => {
+  return __jsx(antd__WEBPACK_IMPORTED_MODULE_0__["Form"], {
+    style: {
+      marginBottom: "20px",
+      border: "1px solid #d9d9d9",
+      padding: "20px"
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 5
+    }
+  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_0__["Input"], {
+    addonBefore: "\uB2C9\uB124\uC784",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 7
+    }
+  }), __jsx(antd__WEBPACK_IMPORTED_MODULE_0__["Button"], {
+    type: "primary",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 7
+    }
+  }, "\uC218\uC815"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NicknameEditForm);
+
+/***/ }),
 
 /***/ "./pages/profile.js":
 /*!**************************!*\
@@ -106,8 +160,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "antd");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_NicknameEditForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/NicknameEditForm */ "./components/NicknameEditForm.js");
 var _jsxFileName = "D:\\nodebirds\\front\\pages\\profile.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -116,40 +172,19 @@ const Profile = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5,
+      lineNumber: 6,
       columnNumber: 5
     }
-  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Form"], {
-    style: {
-      marginBottom: "20px",
-      border: "1px solid #d9d9d9",
-      padding: "20px"
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6,
-      columnNumber: 7
-    }
-  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Input"], {
-    addonBefore: "\uB2C9\uB124\uC784",
+  }, __jsx(_components_NicknameEditForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7,
-      columnNumber: 9
+      columnNumber: 7
     }
-  }), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-    type: "primary",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8,
-      columnNumber: 9
-    }
-  }, "\uC218\uC815")), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["List"], {
+  }), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["List"], {
     style: {
-      marginBottom: '20px'
+      marginBottom: "20px"
     },
     grid: {
       gutter: 4,
@@ -161,23 +196,23 @@ const Profile = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14,
-        columnNumber: 15
+        lineNumber: 12,
+        columnNumber: 17
       }
     }, "\uD314\uB85C\uC6CC \uBAA9\uB85D"),
     loadMore: __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       style: {
-        width: '100%'
+        width: "100%"
       },
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15,
-        columnNumber: 17
+        lineNumber: 13,
+        columnNumber: 19
       }
     }, "\uB354 \uBCF4\uAE30"),
     bordered: true,
-    dataSource: ['안녕', '하세요', 'ㅇㅇㅇㅇ'],
+    dataSource: ["안녕", "하세요", "ㅇㅇㅇㅇ"],
     renderItem: item => __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["List"].Item, {
       style: {
         marginTop: "20px"
@@ -185,7 +220,7 @@ const Profile = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19,
+        lineNumber: 17,
         columnNumber: 11
       }
     }, __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Card"], {
@@ -195,14 +230,14 @@ const Profile = () => {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20,
+          lineNumber: 18,
           columnNumber: 29
         }
       })],
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20,
+        lineNumber: 18,
         columnNumber: 13
       }
     }, __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Card"].Meta, {
@@ -210,19 +245,19 @@ const Profile = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20,
-        columnNumber: 63
+        lineNumber: 19,
+        columnNumber: 15
       }
     }))),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 8,
       columnNumber: 7
     }
   }), __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["List"], {
     style: {
-      marginBottom: '20px'
+      marginBottom: "20px"
     },
     grid: {
       gutter: 4,
@@ -235,22 +270,22 @@ const Profile = () => {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 28,
-        columnNumber: 15
+        columnNumber: 17
       }
     }, "\uD314\uB85C\uC789 \uBAA9\uB85D"),
     loadMore: __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       style: {
-        width: '100%'
+        width: "100%"
       },
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 29,
-        columnNumber: 17
+        columnNumber: 19
       }
     }, "\uB354 \uBCF4\uAE30"),
     bordered: true,
-    dataSource: ['안녕', '하세요', 'ㅇㅇㅇㅇ'],
+    dataSource: ["안녕", "하세요", "ㅇㅇㅇㅇ"],
     renderItem: item => __jsx(antd__WEBPACK_IMPORTED_MODULE_1__["List"].Item, {
       style: {
         marginTop: "20px"
@@ -283,8 +318,8 @@ const Profile = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34,
-        columnNumber: 63
+        lineNumber: 35,
+        columnNumber: 15
       }
     }))),
     __self: undefined,
@@ -300,7 +335,7 @@ const Profile = () => {
 
 /***/ }),
 
-/***/ 6:
+/***/ 5:
 /*!********************************!*\
   !*** multi ./pages/profile.js ***!
   \********************************/
