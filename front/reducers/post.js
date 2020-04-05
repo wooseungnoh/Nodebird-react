@@ -1,13 +1,15 @@
 export const initialState = {
-  mainPosts: [{
-    User: {
-      id: 1,
-      nickname: "우승",
+  mainPosts: [
+    {
+      User: {
+        id: 1,
+        nickname: "우승",
+      },
+      content: "첫 번째 게시글",
+      img: "",
     },
-    content: "첫 번째 게시글",
-    img: "",
-  }],
-  imagePath:[]
+  ],
+  imagePaths: [],
 };
 
 export const ADD_POST = "ADD_POST";
@@ -41,12 +43,12 @@ const reducer = (state = initialState, action) => {
         mainPosts: [action.data, ...state.mainPosts],
       };
     }
-    default:{
-      return{
+    default: {
+      return {
         ...state,
-      }
+      };
     }
   }
 };
 
-export default reducer
+export default reducer;

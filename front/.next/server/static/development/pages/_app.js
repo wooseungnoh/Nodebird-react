@@ -2659,7 +2659,7 @@ const initialState = {
     content: "첫 번째 게시글",
     img: ""
   }],
-  imagePath: []
+  imagePaths: []
 };
 const ADD_POST = "ADD_POST";
 const ADD_DUMMY = "ADD_DUMMY";
