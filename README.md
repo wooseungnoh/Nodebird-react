@@ -64,3 +64,4 @@
 13. redux dev tools 로 리덕스의 실행여부, 혹은 타임머신 등의 디버깅 기능을 쉽게 사용할 수 있다.
 14. <pre><code>const dispatch = useDispatch()</code></pre>를 이용하여 dispatch 한다.
 15. useSelector 를 이용하여 원하는 State 만 꺼내어 쓸 수 있다.
+16. dummy 데이터 모두 리덕스로 대체함. 3-8
