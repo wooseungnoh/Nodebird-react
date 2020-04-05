@@ -47,3 +47,20 @@
 1. 프론트단의 레이아웃은 완료함.
 2. 조건문, 반복문에 사용된것들을 모두 각개의 컴포넌트로 분리함.
 3. 되도록 Form 은 state 를 사용하기 때문애 컴포넌트 분리를 하는게 좋음.
+
+# 04/05
+1. 리덕스 => 흩어진 state를 한곳에 모으고 필요한부분에서 필요한 state만 때어서 쓰기 편함. 
+2. 리덕스는 별도의 state 를 가지고 있어 react 의 state를 쓰지 않아도 되나, 보통 함께 사용함.
+3. 리덕스는 Action, Dispatch, Reducer, Store 이런 개념으로 나뉜다.
+4. Action =>  state 를 바꾸는 행동 자체(state는 action을 통해만 바뀔수 있슴. react 의 setState 와 같음)
+5. Dispatch => Action 을 실행
+6. Store => state 를 모아놓은것.
+7. Reducer => Action 의 결과로 State 가 어떻게 변화할지를 미리 정의해놓는것.
+8. npm i redux react-redux (사실 리덕스는 리액트만을 위한것이 아니라 별도로 사용할 수 있음. 그래서 react-redux 를 설치해줘야함)
+9. 리덕스는 state 를 하나로 뭉치는 역할을 하긴 하지만 한 파일에 몰아놓으면 너무 코드량이 방대해 지기에, state 를 별개의 store 로 쪼갠 후 root Store 로 묶어서 사용할 수 있다.(이 프로젝트에서는 reducers/index.js)
+10. 스프레드 문법 => 새로운 객체를 생성하는 문법으로 리액트는 기존 state와 지금의 state가 달라졌는지를 파악하여 새로 렌더링을 하는데 객체의 경우 참조가 항상 같기떄문에 달라졌는지를 알아차리지 못한다. 때문에 새로운 객체를 생성하여 참조를 바꾸면 그때, state 가 바뀐걸 알아차리게 된다.
+11. next 에 redux 를 붙이려면 npm i next-redux-wrapper 를 설치해주어야 함.
+12. store 를 props 로 전달하는걸 next redux wrapper 이 해주고, 이를 적용시킬땐 하이오더 컴포넌트로 만들어 주어야 함. 이곳에서 미들웨어도 사용 가능함.(middlewares 의 배열 안에 미들웨어를 넣을 수 있슴.)
+13. redux dev tools 로 리덕스의 실행여부, 혹은 타임머신 등의 디버깅 기능을 쉽게 사용할 수 있다.
+14. <pre><code>const dispatch = useDispatch()</code></pre>를 이용하여 dispatch 한다.
+15. useSelector 를 이용하여 원하는 State 만 꺼내어 쓸 수 있다.
