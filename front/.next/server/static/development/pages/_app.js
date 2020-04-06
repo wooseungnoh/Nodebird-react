@@ -2337,8 +2337,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "antd");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _reducers_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reducers/user */ "./reducers/user.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "D:\\nodebirds\\front\\pages\\signup.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
 
  //커스텀 훅
 
@@ -2373,6 +2378,7 @@ const Signup = () => {
   const [id, onChangeId] = useInput("");
   const [nick, onChangeNick] = useInput("");
   const [password, onChangePassword] = useInput("");
+  const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
   const onSubmit = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(e => {
     e.preventDefault();
 
@@ -2384,13 +2390,11 @@ const Signup = () => {
       return setTermError(true);
     }
 
-    console.log({
+    dispatch(Object(_reducers_user__WEBPACK_IMPORTED_MODULE_2__["signUpAction"])({
       id,
-      nick,
       password,
-      passwordCheck,
-      term
-    });
+      nick
+    }));
   }, [password, passwordCheck, term]);
   const onChangePasswordCheck = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(e => {
     setPasswordError(e.target.value !== password);
@@ -2706,14 +2710,18 @@ const reducer = (state = initialState, action) => {
 /*!**************************!*\
   !*** ./reducers/user.js ***!
   \**************************/
-/*! exports provided: initialState, LOG_IN, LOG_OUT, loginAction, logoutAction, default */
+/*! exports provided: initialState, SIGN_UP, LOG_IN, LOG_IN_SUCCESS, LOG_IN_FAILURE, LOG_OUT, signUpAction, loginAction, logoutAction, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SIGN_UP", function() { return SIGN_UP; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOG_IN", function() { return LOG_IN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOG_IN_SUCCESS", function() { return LOG_IN_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOG_IN_FAILURE", function() { return LOG_IN_FAILURE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOG_OUT", function() { return LOG_OUT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signUpAction", function() { return signUpAction; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loginAction", function() { return loginAction; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoutAction", function() { return logoutAction; });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -2726,7 +2734,8 @@ const dummyUser = {
   nickname: "노우승",
   Post: [],
   Followings: [],
-  Followers: []
+  Followers: [],
+  signUpDatea: []
 }; //store
 
 const initialState = {
@@ -2734,10 +2743,21 @@ const initialState = {
   user: null
 }; //초기 state
 
+const SIGN_UP = "SIGN_UP";
 const LOG_IN = "LOG_IN"; //액션의 이름
+
+const LOG_IN_SUCCESS = "LOG_IN_SUCCESS"; //액션의 이름
+
+const LOG_IN_FAILURE = "LOG_IN_FAILURE"; //액션의 이름
 
 const LOG_OUT = "LOG_OUT"; //액션의 이름
 
+const signUpAction = data => {
+  return {
+    type: SIGN_UP,
+    data: data
+  };
+};
 const loginAction = {
   type: LOG_IN,
   data: {
@@ -2764,6 +2784,13 @@ const reducer = (state = initialState, action) => {
         return _objectSpread({}, state, {
           isLoggedIn: false,
           user: null
+        });
+      }
+
+    case SIGN_UP:
+      {
+        return _objectSpread({}, state, {
+          signUpDatea: action.data
         });
       }
 
