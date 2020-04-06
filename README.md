@@ -65,3 +65,13 @@
 14. <pre><code>const dispatch = useDispatch()</code></pre>를 이용하여 dispatch 한다.
 15. useSelector 를 이용하여 원하는 State 만 꺼내어 쓸 수 있다.
 16. dummy 데이터 모두 리덕스로 대체함. 3-8
+
+# 04/06
+1. action을 만드는데, 어떤 데이터가 들어올지 모르는 동적 데이터라면 action 을 함수형으로 만들 수 있다.
+2. 보통 form 같은 경우는 redux state를 쓰지 않고 react state 로 사용하고 submit 을했을때 redux 로 넘겨주는 방식을 많이 쓴다. 모조리 redux 로 하면 너무 비효율적이다.
+3. 서버와 통신하거나 여러 컴포넌트에서 함께 쓰는 state 는 redux가 조금더 났다.
+4. 리덕스는 모든게 동기적으로 일어남.
+5. 예를들어 로그인과정중 사용자의 데이터를 서버에 보내주고 검사 후 다시 받아야하는데 리덕스는 이런 기능이 없기떄문에 기능을 확장 시켜야한다(미들웨어로)
+6. redux-saga 도 마찬가지로 post, user를 index 라는 rootSaga로 묶어서 사용한다.
+7. 진행은 redux 에서 액션이 들어오는지를 기다리다가 해당 액션이 들어오면 api를 호출하여 성공과 실패 여부를 나눈다. 이를 중간에 끼어서 처리해준다.
+8. <pre><code>function* generator(){ }</code></pre> generator 함수란 실행을 임의로 멈췄다가 재개할 수 있는 함수. <pre><code>const gen = genrator()</code><br/><code>gen.next()</code></pre>next가 있으면 실행된다. 중간에 yield 가 있다면 그 이후 코드는 실행되지 않고 멈춘다.<pre><code>function* generator(){<br/>  console.log(1)<br/>  console.log(2)<br/>  yield<br/>  console.log(3)<br/>}</code></pre> 이 경우 console.log(3) 은 실행되지 않음. 하지만 이후 다시 next를 해주면 중단점에서 다시 재개해준다.
