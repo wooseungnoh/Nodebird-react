@@ -1,5 +1,5 @@
 import {all, fork, takeLatest, call, put} from "redux-saga/effects"
-import { LOG_IN, LOG_IN_SUCCESS, LOG_IN_FAILURE } from "../reducers/user"
+import { LOG_IN_REQUEST, LOG_IN_SUCCESS, LOG_IN_FAILURE } from "../reducers/user"
 
 function loginAPI() {
     //서버에 요청을 보내는 부분
@@ -20,7 +20,7 @@ function* login () {
 }
 
 function* watchLogin(){ //리덕스에서 LOG_IN 액션이 들어오는지 기다림.
-    yield takeLatest(LOG_IN, login)
+    yield takeLatest(LOG_IN_REQUEST, login)
 }
 
 export default function* userSaga(){

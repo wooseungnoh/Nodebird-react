@@ -1,15 +1,20 @@
 module.exports = {
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true
-    }
-  },
   env: {
     browser: true,
-    node: true
+    es6: true,
   },
-  extends: ["eslint:recommended", "plugin:react/recommended"],
-  plugins: ["import", "react-hooks"]
+  extends: ["plugin:react/recommended", "airbnb"],
+  globals: {
+    Atomics: "readonly",
+    SharedArrayBuffer: "readonly",
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: "module",
+  },
+  plugins: ["react"],
+  rules: {},
 };

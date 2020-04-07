@@ -73,5 +73,13 @@
 4. 리덕스는 모든게 동기적으로 일어남.
 5. 예를들어 로그인과정중 사용자의 데이터를 서버에 보내주고 검사 후 다시 받아야하는데 리덕스는 이런 기능이 없기떄문에 기능을 확장 시켜야한다(미들웨어로)
 6. redux-saga 도 마찬가지로 post, user를 index 라는 rootSaga로 묶어서 사용한다.
-7. 진행은 redux 에서 액션이 들어오는지를 기다리다가 해당 액션이 들어오면 api를 호출하여 성공과 실패 여부를 나눈다. 이를 중간에 끼어서 처리해준다.
+7. 진행은 redux 에서 액션이 들어오는지를 기다리다가(take) 해당 액션이 들어오면 api를 호출하여 성공과 실패 여부를 나눈다. 이를 중간에 끼어서 처리해준다.
 8. <pre><code>function* generator(){ }</code></pre> generator 함수란 실행을 임의로 멈췄다가 재개할 수 있는 함수. <pre><code>const gen = genrator()</code><br/><code>gen.next()</code></pre>next가 있으면 실행된다. 중간에 yield 가 있다면 그 이후 코드는 실행되지 않고 멈춘다.<pre><code>function* generator(){<br/>  console.log(1)<br/>  console.log(2)<br/>  yield<br/>  console.log(3)<br/>}</code></pre> 이 경우 console.log(3) 은 실행되지 않음. 하지만 이후 다시 next를 해주면 중단점에서 다시 재개해준다.
+
+# 04/07
+1. 제너레이터 함수에 있는 부분은 한번 실행되고나면 다시 실행되지 않는다.
+2. 때문에 while(true) 를 사용하여 dispatch 될때마다 실행되게 만들어 줄 수 있다.
+3. 하지만 while(true) 는 보기에 어색하므로 redux-saga 에서 지원하는 takeEvery 로 대채할수 있다.<pre><code>fuction* watchHello(){<br/>yield takeEvery(HELLO_SAGA, function*(){<br/>console.log(1)<br/>console.log(2)<br/>})<br/>}</code></pre>
+4. takeLatest 는 동일 요청이 여러번 들어갔을때 맨 마지막의 요청만을 처리함. 이전 요청이 끝나지 않았다면 이전 요청을 취소시킨다.(로그인 버튼 여러번 눌러서 서버에 여러번 요청이 들어가거나 그런 일들을 막음)
+5. 즉 요청이 여러번 들어가도 다 인정해줄꺼면 takeEvery, 여러번 들어가면 안되고 한번만 들어가야할 요청이면 takeLatest
+6. call() 동기요청 즉 요청을 보내고 응답이 왔을때 다음동작 실행(예를들어 API서버에 요청을 보내고 결과를 받아야할 경우), fork() 비동기 요청
