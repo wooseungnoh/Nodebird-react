@@ -1,16 +1,16 @@
-import React, { useState, useCallback } from "react";
-import { Form, Input, Checkbox, Button } from "antd";
-import { signUpAction } from "../reducers/user";
-import { useDispatch } from "react-redux"
+import React, { useState, useCallback } from 'react';
+import { Form, Input, Checkbox, Button } from 'antd';
+import { useDispatch } from 'react-redux';
+import { signUpAction } from '../reducers/user';
 
-//커스텀 훅
-  export const useInput = (initValue = null) => {
-    const [value, setter] = useState(initValue);
-    const handler = useCallback(e => {
-      setter(e.target.value);
-    }, []);
-    return [value, handler];
-  };
+//  커스텀 훅
+export const useInput = (initValue = null) => {
+  const [value, setter] = useState(initValue);
+  const handler = useCallback(e => {
+    setter(e.target.value);
+  }, []);
+  return [value, handler];
+};
 
 const Signup = () => {
   const [passwordCheck, setPasswordCheck] = useState("");
@@ -90,7 +90,7 @@ const Signup = () => {
             onChange={onChangePasswordCheck}
           />
           {passwordError && (
-            <div style={{ color: "red" }}>비밀번호가 일치하지 않습니다.</div>
+            <div style={{ color: 'red' }}>비밀번호가 일치하지 않습니다.</div>
           )}
         </div>
         <div>
@@ -98,7 +98,7 @@ const Signup = () => {
             동의?
           </Checkbox>
           {termError && (
-            <div style={{ color: "red" }}>약관에 동의하셔야 합니다.</div>
+            <div style={{ color: 'red' }}>약관에 동의하셔야 합니다.</div>
           )}
         </div>
         <div>

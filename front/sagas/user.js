@@ -9,12 +9,12 @@ function* login () {
     try{
         yield call(loginAPI)
         yield put({ //로그인 성공시 (put 은 dispatch 와 동일)
-            type:LOG_IN_SUCCESS
+            type:LOG_IN_SUCCESS,
         })
     }catch(e){
         console.log(e)
         yield put({ //실패시 이 액션 실행
-            type:LOG_IN_FAILURE
+            type:LOG_IN_FAILURE,
         })
     }
 }

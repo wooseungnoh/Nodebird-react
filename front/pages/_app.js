@@ -1,11 +1,11 @@
-import React from "react";
-import Head from "next/head";
-import PropTypes from "prop-types";
-import AppLayout from "../components/AppLayout";
-import withRedux from "next-redux-wrapper";
-import { Provider } from "react-redux";
-import reducer from "../reducers";
-import { applyMiddleware, compose, createStore } from "redux";
+import React from 'react';
+import Head from 'next/head';
+import PropTypes from 'prop-types';
+import { Provider } from 'react-redux';
+import { applyMiddleware, compose, createStore } from 'redux';
+import withRedux from 'next-redux-wrapper';
+import AppLayout from '../components/AppLayout';
+import reducer from '../reducers';
 
 const NodeBird = ({ Component, store }) => {
   return (
