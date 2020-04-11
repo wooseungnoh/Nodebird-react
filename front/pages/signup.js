@@ -1,12 +1,20 @@
-import React, { useState, useCallback } from 'react';
-import { Form, Input, Checkbox, Button } from 'antd';
-import { useDispatch } from 'react-redux';
-import { signUpAction } from '../reducers/user';
+import React, { useCallback, useState, useEffect } from 'react';
+import { Button, Checkbox, Form, Input } from 'antd';
+import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import Router from 'next/router';
+import { SIGN_UP_REQUEST } from '../reducers/user';
+
+const TextInput = ({ value }) => <div>{value}</div>;
+
+TextInput.propTypes = {
+  value: PropTypes.string,
+};
 
 //  커스텀 훅
 export const useInput = (initValue = null) => {
   const [value, setter] = useState(initValue);
-  const handler = useCallback(e => {
+  const handler = useCallback((e) => {
     setter(e.target.value);
   }, []);
   return [value, handler];
@@ -21,10 +29,18 @@ const Signup = () => {
   const [id, onChangeId] = useInput('');
   const [nick, onChangeNick] = useInput('');
   const [password, onChangePassword] = useInput('');
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const { isSigningUp, me } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (me) {
+      alert('로그인했으니 메인페이지로 이동합니다.');
+      Router.push('/');
+    }
+  }, [me && me.id]);
 
   const onSubmit = useCallback(
-    e => {
+    (e) => {
       e.preventDefault();
       if (password !== passwordCheck) {
         return setPasswordError(true);
@@ -32,20 +48,25 @@ const Signup = () => {
       if (!term) {
         return setTermError(true);
       }
-      dispatch(signUpAction({
-        id, password, nick
-      }))
+      return dispatch({
+        type: SIGN_UP_REQUEST,
+        data: {
+          id,
+          password,
+          nick,
+        },
+      });
     },
     [password, passwordCheck, term]
   );
   const onChangePasswordCheck = useCallback(
-    e => {
+    (e) => {
       setPasswordError(e.target.value !== password);
       setPasswordCheck(e.target.value);
     },
     [password]
   );
-  const onChangeTerm = useCallback(e => {
+  const onChangeTerm = useCallback((e) => {
     setTermError(false);
     setTerm(e.target.checked);
   }, []);
@@ -102,7 +123,7 @@ const Signup = () => {
           )}
         </div>
         <div>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" loading={isSigningUp}>
             가입하기
           </Button>
         </div>
