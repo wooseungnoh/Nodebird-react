@@ -90,3 +90,11 @@
 3. router.push() 를 이용하여 페이지 이동시키기가 가능함. ex) router.push('/') 홈으로
 4. react 에서의 form 은 submit 시 페이지가 이동되는걸 막기 위하여 e.preventDefault() 를 써준다.
 5. 다시한번 불변성 이란 바뀔 값만 새로운 객채를 생성하고 나머지는 원래상태를 유지
+
+# 04/19 복습
+1. 로그인 사이클
+2. 로그인폼에 데이터를 모두 넣은후 submit 버튼이 눌리면
+3. onSubmitForm 이 실행되며 dispatch 로 LOG_IN_REQUEST 액션이 실행
+4. redux 에서는 isLoggingIn 이 true로 바뀌어 로딩이 보여지고 redux-saga 에서도 동시에 watchLogin 을통해 LOG_IN_REQUEST 를 감지하고 login function 을 실행
+5. login function 에서는 loginAPI를 통해 검증
+6. 검증 성공이라면 saga 에서 LOG_IN_SUCCESS 를 put 을 이용해 dispatch
