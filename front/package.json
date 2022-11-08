@@ -13,7 +13,7 @@
   "dependencies": {
     "antd": "^3.26.14",
     "axios": "^0.19.2",
-    "next": "^9.3.3",
+    "next": "^13.0.2",
     "next-redux-wrapper": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
